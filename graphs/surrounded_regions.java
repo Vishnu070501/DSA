@@ -25,6 +25,7 @@ class surroundedJava {
         // (r, c+1) is Right
         int[] dr = { -1, 1, 0, 0 };
         int[] dc = { 0, 0, -1, 1 };
+        List<Integer> myList = List.of(-1, 1, 0, 0);
 
         // Loop through all 4 directions
         for (int i = 0; i < 4; i++) {
