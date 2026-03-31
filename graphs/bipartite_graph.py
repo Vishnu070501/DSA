@@ -1,6 +1,18 @@
 #rule of thumb leniar graphs are bipartite, if there is a cycle of odd length then the graph is not bipartite
 def bfs_filling(adjacency_list, node, start_color, colors):
-
+    """
+    Performs a component traversal using an iterative stack (DFS-like behavior)
+    to color the graph and check for bipartiteness.
+    
+    Args:
+        adjacency_list: Graph representation as an array of neighbor lists.
+        node: The starting node to color.
+        start_color: The color (0 or 1) assigned to the start node.
+        colors: Array tracking the colors of all nodes (None if uncolored).
+        
+    Returns:
+        bool: True if this component can be bipartitely colored, False if a conflict is found.
+    """
     colors[node] = start_color
     helper_stack = [node]
 
@@ -28,6 +40,18 @@ def bfs_filling(adjacency_list, node, start_color, colors):
 
     return True
 def dfs_filling(adjacency_list, node, start_color, colors):
+    """
+    Performs Depth-First Search (DFS) recursively to find if the graph component is bipartite.
+    
+    Args:
+        adjacency_list: Graph representation as an array of neighbor lists.
+        node: The currently visited node.
+        start_color: The color assigned to the current node.
+        colors: Array tracking the assigned colors of all nodes.
+        
+    Returns:
+        bool: True if valid bipartite coloring is possible, False if a conflict is found.
+    """
     colors[node] = start_color
     neighbors = adjacency_list[node]
     for neighbor in neighbors:
@@ -41,16 +65,35 @@ def dfs_filling(adjacency_list, node, start_color, colors):
     return True
 
 def is_bipartite(adjacency_list):
+    """
+    Checks if the entire graph represented by the adjacency_list is bipartite.
+    Iterates over all nodes to handle disconnected components.
+    
+    Args:
+        adjacency_list: Assumes 1-based indexing where index 0 is None or ignored.
+        
+    Returns:
+        bool: True if the graph is bipartite, False otherwise.
+    """
+    # Initialize all nodes with 'None' indicating they are uncolored
     colors = [None for _ in range(len(adjacency_list))]
+    
     for node in range(1,len(adjacency_list)):
+        # Process component only if the node hasn't been colored yet
         if colors[node] is None:
             neighbor_colors = [colors[i] for i in adjacency_list[node]]
+            
+            # Check if it's safe to start coloring the current node with 1
             if all([ele!=1 for ele in neighbor_colors]):
                 if not bfs_filling(adjacency_list, node, 1, colors):
                     return False
+                    
+            # Or check if it's safe to start coloring it with 0
             elif all([ele!=0 for ele in neighbor_colors]):
                 if not bfs_filling(adjacency_list, node, 0, colors):
                     return False
+                    
+            # If neighbors have both 0 and 1, the graph cannot be bipartite
             else:
                 return False
             # if all([ele!=1 for ele in neighbor_colors]):
