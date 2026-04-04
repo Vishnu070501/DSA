@@ -1,3 +1,8 @@
+#when question comes try all possible ways, get me minimum possible or maximum problem or count all possible ways then understand it is a recursion,get me the best way or the worst way
+#recursion shortcut(while drawing the tree for euler):
+# 1.try to represent a problem in terms of Index
+# 2.do all possible things at that index 
+# 3.if it is count question it add all results and count, if min get the minimum of the ways, or max get the max of the ways
 def can_make_move(matrix, destination, cells_visited):
     x,y = destination
     # if x== len(matrix) or y == len(matrix[0]):
