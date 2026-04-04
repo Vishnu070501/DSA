@@ -46,6 +46,8 @@ def stairs_path_dp(start, end, one_d_map=None):#here no need to carry result pat
 
     if start == end:
         return [[]] #because result paths is an array of arrays(and only single way to reach from here is to just stand)
+    if start > end:
+        return [] #because no ways from here
     
     if one_d_map[start]:
         return one_d_map[start]
@@ -53,14 +55,20 @@ def stairs_path_dp(start, end, one_d_map=None):#here no need to carry result pat
     one_d_map[start+1] = paths_from_next_step
     paths_from_next_step = [[1, *ele] for ele in paths_from_next_step]
 
-    result_paths.extend(paths_from_next_step)
+    # result_paths.extend(paths_from_next_step)
+    result_paths += paths_from_next_step
 
-    if start +2 <= end:
-        paths_from_next_to_next_step =stairs_path_recursion_with_return(start+2, end)
-        one_d_map[start+2] = paths_from_next_to_next_step
-        paths_from_next_to_next_step = [[2, *ele] for ele in paths_from_next_to_next_step]
-        result_paths.extend(paths_from_next_to_next_step)
+    # if start +2 <= end:
+    #     paths_from_next_to_next_step =stairs_path_recursion_with_return(start+2, end)
+    #     one_d_map[start+2] = paths_from_next_to_next_step
+    #     paths_from_next_to_next_step = [[2, *ele] for ele in paths_from_next_to_next_step]
+    #     result_paths.extend(paths_from_next_to_next_step)
 
+    paths_from_next_to_next_step =stairs_path_recursion_with_return(start+2, end)
+    one_d_map[start+2] = paths_from_next_to_next_step
+    paths_from_next_to_next_step = [[2, *ele] for ele in paths_from_next_to_next_step]
+    result_paths+=paths_from_next_to_next_step
+    
     return result_paths
 
 def stairs_path_tabulation(start, end):
@@ -116,4 +124,4 @@ def stairs_path_tabulation_opt(start, end):
     return current_step
 
 print("Array Tabulation Paths:\t\t", stairs_path_tabulation(0, 4))
-print("Space Opt Tabulation Paths:\t", stairs_path_tabulation_opt(0, 4))
+print("Space Opt Tabulation Paths:\t", stairs_path_dp(0, 4))
