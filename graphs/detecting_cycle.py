@@ -1,3 +1,8 @@
+"""
+Problem Statement: Detect Cycle in an Undirected Graph
+Given an undirected graph with V vertices and E edges, check whether it contains any cycle or not.
+"""
+
 def detect_bfs(adjacency_list, visited_array, start):
     queue = [{"node": start, "parent": -1}]
     visited_array[start] = True

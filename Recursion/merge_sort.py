@@ -1,3 +1,8 @@
+"""
+Problem Statement: Merge Sort
+Given an array of integers, sort the array in ascending order using the Merge Sort algorithm.
+"""
+
 def merge_sort(arr):
     if(len(arr)==1):
         return arr

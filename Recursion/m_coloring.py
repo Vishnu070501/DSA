@@ -1,3 +1,10 @@
+"""
+Problem Statement: M-Coloring Problem
+Given an undirected graph and an integer M. The task is to determine if the graph can be colored 
+with at most M colors such that no two adjacent vertices of the graph are colored with same color. 
+Print 1 if it is possible to colour vertices and 0 otherwise.
+"""
+
 def is_color_possible(node, color, adjacency_list, color_map):
     for neighbor in adjacency_list[node]:
         if color_map[neighbor]==color:

@@ -1,3 +1,9 @@
+"""
+Problem Statement: Climbing Stairs
+You are climbing a staircase. It takes n steps to reach the top. 
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+"""
+
 #when question comes try all possible ways, get me minimum possible or maximum problem or count all possible ways then understand it is a recursion,get me the best way or the worst way
 #how to understand dp is if it is a recursion problem and in the recursive calls you see calls for a particular number being repeated in the euler's path then we can memoize
 #recursion shortcut(while drawing the tree for euler)

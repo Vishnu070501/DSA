@@ -1,3 +1,9 @@
+"""
+Problem Statement: Detect Cycle in a Directed Graph
+Given a Directed Graph with V vertices (Numbered from 0 to V-1) and E edges, 
+check whether it contains any cycle or not.
+"""
+
 def detect_cyle(adjacency_list, node, visited, path_visited):
     """
     Performs Depth-First Search (DFS) to find if there is a cycle in a directed graph.

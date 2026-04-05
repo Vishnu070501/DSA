@@ -1,3 +1,8 @@
+"""
+Problem Statement: Graph Traversal (BFS & DFS)
+Generic graph theory problems and search algorithms for basic graph traversals.
+"""
+
 def breadth_first_search(graph, start, visited):
     queue = [start]
     visited.add(start)

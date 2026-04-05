@@ -1,3 +1,11 @@
+"""
+Problem Statement: Frog Jump with K Distances
+Given a number of stairs and a frog, the frog wants to climb from the 0th stair to the (N-1)th stair. 
+At a time the frog can climb any number of steps from 1 to K. A height[N] array is given. 
+The energy consumed in a jump from stair i to stair j is abs(height[i]- height[j]). 
+Find the minimum energy required to reach the last stair.
+"""
+
 # Time Complexity: O(k^n) since at each of the n steps, we can branch out to k possible jumps.
 # Space Complexity: O(n) for the recursion call stack, as maximum depth is n.
 def frog_k_jumps_rec(energy_levels, k, current_level=0):

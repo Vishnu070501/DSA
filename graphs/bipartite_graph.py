@@ -1,3 +1,10 @@
+"""
+Problem Statement: Is Graph Bipartite?
+There is an undirected graph with n nodes. Return true if and only if it is bipartite. 
+A graph is bipartite if the nodes can be partitioned into two independent sets A and B such that 
+every edge in the graph connects a node in set A and a node in set B.
+"""
+
 #rule of thumb leniar graphs are bipartite, if there is a cycle of odd length then the graph is not bipartite
 def bfs_filling(adjacency_list, node, start_color, colors):
     """

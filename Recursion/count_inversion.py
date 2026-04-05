@@ -1,3 +1,9 @@
+"""
+Problem Statement: Count Inversions
+Given an array of integers. Find the Inversion Count in the array. 
+Inversion Count indicates how far (or close) the array is from being sorted. 
+Formally, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
+"""
 
 def sort_two_sorted(array_1, array_2):
     result = []

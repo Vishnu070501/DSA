@@ -1,3 +1,9 @@
+"""
+Problem Statement: N-Queens
+The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that 
+no two queens attack each other. Given an integer n, return all distinct solutions.
+"""
+
 def is_safe(chess_board, x, y):
     i,j = x-1,y-1
 

@@ -1,3 +1,11 @@
+"""
+Problem Statement: Frog Jump (Geek Jump)
+Given a number of stairs and a frog, the frog wants to climb from the 0th stair to the (N-1)th stair. 
+At a time the frog can climb either one or two steps. A height[N] array is also given. 
+Whenever the frog jumps from a stair i to stair j, the energy consumed in the jump is abs(height[i]- height[j]). 
+Find the minimum energy that can be used by the frog to jump from stair 0 to stair N-1.
+"""
+
 # Time Complexity: O(2^n) because from each step we can take a 1-step or 2-step jump, leading to an exponential recursion tree.
 # Space Complexity: O(n) for the recursion call stack, as the maximum depth of recursion will be the number of energy levels.
 def frog_jump( energy_levels, current_level=0, energy_till_now=0):
