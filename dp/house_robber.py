@@ -33,13 +33,34 @@ def non_adjacent_max_space_opt_reversed(array):
     return prev
 
 # How we solve this using the previous logic:
-# Because the houses are formatted in a circle, the very first house and the very last house are strictly adjacent!
-# Therefore, we can never rob BOTH the first and the last house simultaneously in any scenario.
+# Because the houses are formatted in a circle, the very first house (Index 0) 
+# and the very last house (Index N-1) are strictly adjacent. 
+# Therefore, we can mathematically NEVER rob BOTH of them simultaneously.
 # 
-# This splits the problem perfectly into two separate linear "House Robber" tasks (which we just previously solved!):
-# 1. We skip the LAST house entirely, evaluating linearly from index 0 to N-2: `array[:-1]`
-# 2. We skip the FIRST house entirely, evaluating linearly from index 1 to N-1: `array[1:]`
-# The optimal answer is just the maximum result comparing these two separate sub-arrays!
+# This structurally splits the universe of all valid solutions into two sets:
+# 1. Solutions that DO NOT include the LAST house: We aggressively enforce this by running DP strictly on `array[:-1]`.
+# 2. Solutions that DO NOT include the FIRST house: We aggressively enforce this by running DP strictly on `array[1:]`.
+# 
+# Common Doubt: "What if the optimal run on `array[1:]` naturally decides to skip House 1 
+# (the 2nd house) and House N-1 (the last house)? Doesn't that explicitly leave a safe 
+# gap to add House 0 (the 1st house) to our total sum?"
+# 
+# Answer: YES! But we don't mechanically force House 0 into the `array[1:]` answer. 
+# If picking House 0 was mathematically the highest yielding scenario, that EXACT sequence 
+# natively is evaluated inside our OTHER sweeping sub-array (`array[:-1]`). 
+# 
+# `array[:-1]` fundamentally has House 0 available to pick! 
+# Because Dynamic Programming evaluates EVERY single possible subset natively, it is mathematically 
+# impossible for `array[:-1]` to "forget" or fail to pick House 0 if picking House 0 yields a higher sum! 
+# It evaluates exactly what you are thinking: `max(Path WITH House 0, Path WITHOUT House 0)`.
+# 
+# Meanwhile, `array[1:]` never had access to House 0, returning just (X).
+# Since DP guarantees the (X + House 0) path is evaluated inside `array[:-1]`, 
+# taking the max() of both disjoint universes automatically and safely locks in the maximized outcome!
+# 
+# - Scenario A (Finds the absolute optimal path in [0 to N-2])
+# - Scenario B (Finds the absolute optimal path in [1 to N-1])
+# We guarantee that no matter what the optimal path is, one of these two sweeps will find it.
 # Time Complexity: O(N) | Space Complexity: O(1)
 def max_money_robber_can_make(house_vals):
     # Base case: You only have one house to rob.
