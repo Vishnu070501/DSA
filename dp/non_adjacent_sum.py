@@ -19,6 +19,7 @@ def non_adjacent_max(array, subseq_indices, index):
 print(f"Original unmemoizable output: {non_adjacent_max([2,1,4,9], [],0)}")
 
 """
+These kinds of functions where a kind of the recrusion stack representative(which represent the path in the recursion tree you took) variable travels can be used when you don't need to return a value, where for example we can print the sum of the subsequence is selected (in a question where it is asked to print the sum of all the subsequences or print the subsequence, or carry any other max or min or sum variable in the euler path and to calculate the max or min or the sum at the base case when the sub_sequence is ready and return it at the end).These representative variables and the max or min can be replaced using a simpler return value at the base case, or can decide the max or min or sum can be calculated at the post traversal of all the calls in euler
 Why this specific function CANNOT be efficiently memoized:
 1. Dynamic Programming / Memoization requires storing the answer for a specific "State" to avoid recalculating it. 
 2. In your `non_adjacent_max` above, the State is determined by `index` and the ENTIRE `subseq_indices` array history.
