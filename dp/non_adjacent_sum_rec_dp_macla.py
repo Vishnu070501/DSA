@@ -18,8 +18,38 @@ def non_adjacent_max(array, subseq_indices, index):
     return max_sum
 print(f"Original unmemoizable output: {non_adjacent_max([2,1,4,9], [],0)}")
 
-"""
-These kinds of functions where a kind of the recrusion stack representative(which represent the path in the recursion tree you took) variable travels can be used when you don't need to return a value, where for example we can print the sum of the subsequence is selected (in a question where it is asked to print the sum of all the subsequences or print the subsequence, or carry any other max or min or sum variable in the euler path and to calculate the max or min or the sum at the base case when the sub_sequence is ready and return it at the end).These representative variables and the max or min can be replaced using a simpler return value at the base case, or can decide the max or min or sum can be calculated at the post traversal of all the calls in euler
+"""When to use 'Path Trackers' and 'Accumulators' vs 'Return Values' in Recursion:
+
+1. Passing Path Trackers & Accumulators Down the Tree:
+   Carrying an array (representing the path) or an accumulator variable (like `current_sum`, 
+   `current_max`, or `current_min`) down the recursion tree (in the Euler Path) is useful 
+   when you need to build up state to process or side-effect exactly at the leaf nodes. For example:
+   - Printing every single valid subsequence or path you selected.
+   - Finding all possible combinations / permutations recursively.
+   - Calculating an aggregate on the way down, and then printing/returning the fully 
+     accumulated sum/max/min directly at the base case when the path tracker is ready(this involves carrying another variable down the tree(current_sum/max/min)).Then the sum/min/max can be returned at the end.
+   
+   In these scenarios, you generally build the state on the way down (pre-order computation),
+   and process it natively at the base case before backtracking.
+
+   HOWEVER, this completely destroys Memoization efficiency! If you pass `current_sum` 
+   down into the recursive calls, your DP "State" is now defined by both `index` AND `current_sum`. 
+   Since `current_sum` can hold thousands of wildly different unique values along different 
+   paths, your number of distinct states balloons exponentially.
+
+2. Using Return Values (Required for DP):
+   If you only need an aggregate result (like "maximum sum"), you should NEVER pass the 
+   accumulator down the tree. Instead, you should calculate the result on the way BACK UP 
+   the tree (post-order computation).
+   - Let the base case return a baseline integer safely.
+   - Let the parent nodes take those returned integers, apply `max()` or `min()`,  or sum() or any other 
+     operation depending on the problem, and organically return the aggregated result up to their parent.
+   
+This "Return Value" approach elegantly replaces path/accumulator variables, removing the history 
+from the arguments. This collapses your distinct States (down to simply just `index`) 
+and allows DP Memoization to operate flawlessly in O(N) time.
+
+-------------------------------------------------------------------------------------
 Why this specific function CANNOT be efficiently memoized:
 1. Dynamic Programming / Memoization requires storing the answer for a specific "State" to avoid recalculating it. 
 2. In your `non_adjacent_max` above, the State is determined by `index` and the ENTIRE `subseq_indices` array history.
