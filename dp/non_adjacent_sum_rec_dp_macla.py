@@ -3,7 +3,12 @@ Problem Statement: Maximum Sum of Non-Adjacent Elements (House Robber)
 Given an array of integers, find the maximum sum of a subsequence such that 
 no two elements in the subsequence are adjacent in the original array.
 """
-
+#when question comes try all possible ways, get me minimum possible or maximum problem or count all possible ways then understand it is a recursion,get me the best way or the worst way
+#how to understand dp is if it is a recursion problem and in the recursive calls you see calls for a particular number being repeated in the euler's path then we can memoize
+#recursion shortcut(while drawing the tree for euler)
+# 1.try to represent a problem in terms of Index
+# 2.do all possible things at that index 
+# 3.if it is count question it add all results and count, if min get the minimum of the ways, or max get the max of the ways
 def non_adjacent_max(array, subseq_indices, index):
     if index == len(array):
         return sum([array[i] for i in subseq_indices])
