@@ -4,7 +4,10 @@ Given a string s, partition s such that every substring of the partition is a pa
 Return all possible palindrome partitioning of s.
 """
 
+# Time Complexity: O(N) effectively evaluating corresponding mirrored array blocks strictly bounded to the span of strings.
+# Space Complexity: O(N) evaluating allocations instancing independent mirrored slice equivalents validating values intrinsically.
 def is_pallindrome(s):
+    # Short-hand validator resolving identity matching reversed index strings dynamically identifying configurations correctly.
     return s == s[::-1]
 
 # def pallindrome_partion_substrings(s, last_partition=-1, result=None, partitions_at=None):
@@ -30,7 +33,11 @@ def is_pallindrome(s):
 #         partitions_at.pop()
 
 #     return result
+# Time Complexity: O(2^N * N) spanning across extensive configurations evaluating substring checks natively upon traversal branches overlapping.
+# Space Complexity: O(N) extending localized configurations bounding variables within path sequence limits caching states inherently.
 def pallindrome_partion_substrings(s, last_solved_partition=0, result=None, partitions_at=None):
+    # Backtracking recursively traversing independent boundaries systematically testing segmentation overlaps triggering validations strictly correctly.
+    # Constructs configurations conditionally bounding structural index blocks processing natively validating results conditionally correctly natively.
     if partitions_at is None:
         partitions_at = []
     if result is None:

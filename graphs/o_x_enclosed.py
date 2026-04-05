@@ -4,6 +4,8 @@ Given an m x n matrix board containing 'X' and 'O', capture all regions that are
 A region is captured by flipping all 'O's into 'X's in that surrounded region.
 """
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def dfs(matrix, start, visited_matrix):
     neighbours = []
     r,c = start
@@ -24,6 +26,8 @@ def dfs(matrix, start, visited_matrix):
             dfs(matrix, neigh, visited_matrix)
 
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def o_x_enclosed(matrix):
     visited_matrix = [[False for _ in range(len(matrix[0]))] for _ in range(len(matrix))]
     copy_matrix = [[*row] for row in matrix]

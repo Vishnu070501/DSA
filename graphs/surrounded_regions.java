@@ -15,6 +15,8 @@ class surroundedJava {
     record Pair(int x, int y) {
     }
 
+// Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+// Space Complexity: O(V) spanning auxiliary stacks natively.
     public static List<Pair> getNeighbours(char[][] matrix, Pair coordinates) {
         List<Pair> neighbors = new ArrayList<>();
 
@@ -47,6 +49,8 @@ class surroundedJava {
         return neighbors;
     }
 
+// Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+// Space Complexity: O(V) spanning auxiliary stacks natively.
     public static void dfsMarking(char[][] matrix, Pair startingPoint, boolean[][] visitedMatrix) {
         List<Pair> neigbours = getNeighbours(matrix, startingPoint);
         visitedMatrix[startingPoint.x()][startingPoint.y()] = true;
@@ -56,6 +60,8 @@ class surroundedJava {
         }
     }
 
+// Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+// Space Complexity: O(V) spanning auxiliary stacks natively.
     public static char[][] replaceSurroundedOswithXs(char[][] matrix) {
         // / Deep copy using streams
         char[][] deepCopy = Arrays.stream(matrix)

@@ -6,6 +6,8 @@ every edge in the graph connects a node in set A and a node in set B.
 """
 
 #rule of thumb leniar graphs are bipartite, if there is a cycle of odd length then the graph is not bipartite
+# Time Complexity: O(V + E) verifying all connected component edges iteratively via queue structure.
+# Space Complexity: O(V) space used for the BFS queue mapping dynamically.
 def bfs_filling(adjacency_list, node, start_color, colors):
     """
     Performs a component traversal using an iterative stack (DFS-like behavior)
@@ -46,6 +48,8 @@ def bfs_filling(adjacency_list, node, start_color, colors):
         # print(f"helper stack:{helper_stack}")
 
     return True
+# Time Complexity: O(V + E) exploring all branches safely via recursion.
+# Space Complexity: O(V) bounding the recursive call stack traversing paths symmetrically.
 def dfs_filling(adjacency_list, node, start_color, colors):
     """
     Performs Depth-First Search (DFS) recursively to find if the graph component is bipartite.
@@ -71,6 +75,8 @@ def dfs_filling(adjacency_list, node, start_color, colors):
                 return False
     return True
 
+# Time Complexity: O(V + E) traversing entire matrix systematically efficiently natively.
+# Space Complexity: O(V) tracking array blocks bounding variables intelligently natively.
 def is_bipartite(adjacency_list):
     """
     Checks if the entire graph represented by the adjacency_list is bipartite.

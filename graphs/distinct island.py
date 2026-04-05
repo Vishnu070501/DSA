@@ -8,6 +8,8 @@ if and only if one island is equal to another (not rotated or reflected).
 from copy import deepcopy
 
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def dfs_island_shaped(matrix, starting_point, visited_matrix, base):
     """
     Depth-First Search (DFS) to traverse an island and compute its shape relative to a base point.
@@ -54,6 +56,8 @@ def dfs_island_shaped(matrix, starting_point, visited_matrix, base):
     return shape_visited
 
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def distinct_islands(matrix):
     """
     Finds and returns the number of distinct islands in a given matrix (grid).

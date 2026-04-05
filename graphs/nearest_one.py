@@ -6,6 +6,8 @@ The distance between two adjacent cells is 1.
 
 from copy import deepcopy
 
+# Time Complexity: O(1) processing immediate 4-directional neighboring bounds.
+# Space Complexity: O(1) storing local queue variables internally explicitly.
 def traverse_one_bfs(matrix, starting_point, distance_to_nearest_one):
     row,col = starting_point
     distance_marked = []
@@ -24,6 +26,8 @@ def traverse_one_bfs(matrix, starting_point, distance_to_nearest_one):
     return distance_marked
     
 #done using bfs as we take single step bfs wise and mark each of them as 1 distance from the nearest one
+# Time Complexity: O(N*M) iterating cells using Multi-source BFS logic globally.
+# Space Complexity: O(N*M) mapping auxiliary grid configurations conditionally efficiently.
 def return_nearest_one(matrix):
     copy_matrix = [[None if ele!=1 else 0 for ele in row] for row in matrix]
     starting_points = []

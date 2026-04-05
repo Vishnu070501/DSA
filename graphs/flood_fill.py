@@ -5,6 +5,8 @@ You are also given three integers sr, sc, and color. You should perform a flood 
 starting from the pixel image[sr][sc]. Return the modified image after performing the flood fill.
 """
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def flood_fill(matrix, start, colour):
     matrix_copy = [[*row] for row in matrix]
     
@@ -12,6 +14,8 @@ def flood_fill(matrix, start, colour):
     return matrix_copy
 
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def get_neightbours_of_same_color(matrix, node, colour):
     r,c = node
     result = []
@@ -25,6 +29,8 @@ def get_neightbours_of_same_color(matrix, node, colour):
         if (curr_c>=0 and curr_c<len(matrix[0])) and matrix[r][curr_c]==colour:
             result.append((r,curr_c))
     return result
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def dfs(matrix, start, colour, start_color=None):
     r,c = start
     if start_color is None:

@@ -4,7 +4,10 @@ Given an integer array nums of unique elements, return all possible subsets (the
 The solution set must not contain duplicate subsets. Return the solution in any order.
 """
 
+# Time Complexity: O(2^N * N) spanning element exclusions iteratively projecting combinations safely.
+# Space Complexity: O(2^N * N) evaluating localized slice boundaries caching generated combinations recursively.
 def subsequences(arr):
+    # Structurally evaluates elements propagating base sequences unconditionally evaluating choices symmetrically.
     if len(arr)==1:
         return [[],arr]
     subseq_wo_first_ele = subsequences(arr[1:])
@@ -17,7 +20,10 @@ def subsequences(arr):
 #you can't get a high level thinking analogy(its a lil bit difficult)
 # (you have to dry run a low level thinking for a small case)
 # in the euler path the edges pe jo kaam ho rha h usse matlab h
+# Time Complexity: O(2^N) mirroring native elements building independent array paths exclusively sequentially.
+# Space Complexity: O(2^N) arrays expanding bounds simultaneously tracking generated sequences recursively.
 def subseq_opt(arr, solve_ind=0, res=None):
+    # Generates configurations cleanly processing bounds iterating configurations natively expanding array subsets iteratively.
     if res is None:
         res = [[]]
 
@@ -32,7 +38,11 @@ def subseq_opt(arr, solve_ind=0, res=None):
 
     subseq_opt(arr, solve_ind + 1, res)
 
-def subseq_opt2(arr, solve_ind, subseq_res):#here we build an item of the subsequence result
+# Time Complexity: O(2^N) traversing conditions natively independently evaluating specific bounded splits simultaneously.
+# Space Complexity: O(N) localized bounded array states independently extending configurations tightly safely.
+def subseq_opt2(arr, solve_ind, subseq_res):
+    # Leverages Backtracking extending structures recursively explicitly including/excluding elements tracking independent subsets cleanly.
+    # here we build an item of the subsequence result
     if solve_ind == len(arr):#when the index of the solvable is beyond our array means we have built a subsequence item just print it 
         print(subseq_res)
         return

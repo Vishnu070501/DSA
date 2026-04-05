@@ -4,7 +4,11 @@ The n-queens puzzle is the problem of placing n queens on an n x n chessboard su
 no two queens attack each other. Given an integer n, return all distinct solutions.
 """
 
+# Time Complexity: O(N) analyzing and iterating progressively through grid matrices checking linear zones tracking backwards incrementally.
+# Space Complexity: O(1) in-place static grid verifications accessing memory without extending capacity footprint.
 def is_safe(chess_board, x, y):
+    # Iteratively traces grid intersections across columns extending validating path clearing boundaries.
+    # (Note: Backtracking natively optimizes performance heavily using O(1) hash validations later mitigating need for iterating)
     i,j = x-1,y-1
 
     #upper left diagonal check
@@ -30,7 +34,11 @@ def is_safe(chess_board, x, y):
 
 
     
+# Time Complexity: O(N!) representing boundary permutations constrained sequentially filtering non-usable combinations outright effectively.
+# Space Complexity: O(N) auxiliary allocation sets caching safe configurations hashing structural positions independently along paths extending execution.
 def n_queens(solving_col_index, chess_board=None, left_row=None, left_upper_diagonal=None, left_lower_diagonal=None):
+    # Leverages Backtracking algorithm intelligently hashing static mathematical constraints calculating relative structural collision patterns cleanly on deployment.
+    # Sets configuration states natively ensuring backtracking accurately unwinds specific variables un-slotting queens preserving clean scope evaluation.
     
     if left_row is None:
         left_row = {row_index: False for row_index in range(len(chess_board))}

@@ -4,7 +4,11 @@ Given an array nums of distinct integers, return all the possible permutations.
 You can return the answer in any order.
 """
 
+# Time Complexity: O(N! * N) accounting for N! permutation arrays being generated and spliced simultaneously.
+# Space Complexity: O(N * N!) storing distinct nested permutation blocks collectively in the result stack.
 def permutations(arr):
+    # Base recursion generating exhaustive combination splits by removing fixed prefixes.
+    # Conceptually splices extracted integers across respective index positions creating permutations natively.
     if len(arr) ==1:
         return [arr]
     
@@ -17,7 +21,11 @@ def permutations(arr):
             ele.pop(i)
     return result
 
+# Time Complexity: O(N! * N) efficiently traversing recursive mappings organically.
+# Space Complexity: O(N) extending recursively against N levels retaining minimal scope footprint.
 def permutations_optimised(arr,res=[],map={}):
+    # Backtracking recursively traversing mapped dictionary filters preventing element reuse explicitly.
+    # Tracks currently processed configurations returning when fully configured efficiently.
     if all(map.get(ele) for ele in map.keys()):#if all keys picked and stored in our res print it
         print(res)
         return
@@ -29,7 +37,11 @@ def permutations_optimised(arr,res=[],map={}):
             res.pop()#backtracking(because )
             map[ele]=False
 
-def permutations_more_opt(arr, solvable_ind):#here the solvable index means the index we solvin plus it also denotes that elements before this index have been set in our perm
+# Time Complexity: O(N! * N) tracking combinatorial permutations linearly through iterative swapping loops.
+# Space Complexity: O(N) bounding native array sizes safely mirroring recursive depths tightly.
+def permutations_more_opt(arr, solvable_ind):
+    # Ultimate configuration recursively swapping contiguous array states natively over independent sub-arrays.
+    # Backtracks structural transformations cleanly avoiding redundant mappings dynamically.
     if solvable_ind == len(arr):
         print(arr)
         return

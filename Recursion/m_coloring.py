@@ -5,13 +5,21 @@ with at most M colors such that no two adjacent vertices of the graph are colore
 Print 1 if it is possible to colour vertices and 0 otherwise.
 """
 
+# Time Complexity: O(V) where V represents the maximum degree (number of connected edges) of the node.
+# Space Complexity: O(1) auxiliary space since we just evaluate against the existing adjacency mapping dynamically.
 def is_color_possible(node, color, adjacency_list, color_map):
+    # Checks whether it is safely valid to color a graph node with a specific color designation. 
+    # Scans against directly adjacent neighbors assessing if they inherently share this exact identical color already.
     for neighbor in adjacency_list[node]:
         if color_map[neighbor]==color:
             return False
     return True
 
+# Time Complexity: O(M^N) where N is the number of nodes and M is the number of maximum permitted color assignments.
+# Space Complexity: O(N) for the backtracking call stack array traversing sequence plus the size of tracking color_map list.
 def m_coloring( colors, adjacency_list, color_map=None, node= 0):
+    # Backtracking recursive approach to cleanly color nodes. For the currently scoped node, it actively cycles completely through 1 to M colors.
+    # If a viable valid pathway tracks all the way to completion it triggers True returning natively, else it effectively backtracks erasing footprint bindings out of color_map.
     if color_map is None:
         color_map = [None for _ in range(len(adjacency_list))]
     if node == len(adjacency_list):

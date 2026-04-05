@@ -5,7 +5,11 @@ Inversion Count indicates how far (or close) the array is from being sorted.
 Formally, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
 """
 
+# Time Complexity: O(N) where N is the total length of array_1 and array_2
+# Space Complexity: O(N) since we allocate a new list to store the merged results
 def sort_two_sorted(array_1, array_2):
+    # This acts as the standard merge routine in a Merge Sort. 
+    # It takes two sorted sub-arrays, uses two pointers to compare elements, and merges them into a single sorted array.
     result = []
     pointer_1, pointer_2 = 0, 0
 
@@ -25,7 +29,11 @@ def sort_two_sorted(array_1, array_2):
     return result
 
 
+# Time Complexity: O(N * M) where N and M are the lengths of array_2 and array_1.
+# Space Complexity: O(1) as we just increment a counter iteratively.
 def counter(array_1, array_2):
+    # This is an unoptimized nested-loop matching process to count inversions across two arrays.
+    # We find how many elements in the left sorted array are strictly greater than a given element in the right sorted array.
     count = 0
     for i in range(len(array_2)):
         for j in range(len(array_1)):
@@ -35,9 +43,15 @@ def counter(array_1, array_2):
     return count
 
 
+# Time Complexity: O(N log N * N) due to the unoptimized counter logic spanning across the recursion tree layers.
+# Space Complexity: O(N) for both the execution stack and the extra temporary arrays built on return.
 def helper(my_array):
+    # Main driver for counting valid inversions. We divide the array using Merge Sort logic 
+    # and compute the inversions at each cross-merge step using the counter() function.
     count = 0
 
+    # Time Complexity: Basic Merge Sort reduction tree depth of O(log N).
+    # Space Complexity: O(N) spanning recursive splits tracking independent arrays.
     def count_inversion(my_array):
         nonlocal count   # 🔥 this is what you wanted
 

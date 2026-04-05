@@ -3,7 +3,10 @@ Problem Statement: Graph Traversal (BFS & DFS)
 Generic graph theory problems and search algorithms for basic graph traversals.
 """
 
+# Time Complexity: O(V + E) checking connected neighbors layer by layer natively.
+# Space Complexity: O(V) to maintain the queue for unvisited neighbors dynamically.
 def breadth_first_search(graph, start, visited):
+    # Standard BFS queue implementation natively tracking explored vertices cleanly.
     queue = [start]
     visited.add(start)
 
@@ -19,7 +22,10 @@ def breadth_first_search(graph, start, visited):
 
         
                 
+# Time Complexity: O(V + E) recursively exploring tree components fully.
+# Space Complexity: O(V) tracking call stack depth directly proportional to graph sequence.
 def depth_first_search(graph, start, visited=None):
+    # Standard DFS traversing deeply into leaf nodes inherently executing safely.
     if visited is None:
         visited = set()
     visited.add(start)

@@ -4,6 +4,8 @@ Given a Directed Graph with V vertices (Numbered from 0 to V-1) and E edges,
 check whether it contains any cycle or not.
 """
 
+# Time Complexity: O(V + E) checking connected neighbors recursively.
+# Space Complexity: O(V) bounds managing DFS path execution natively correctly.
 def detect_cyle(adjacency_list, node, visited, path_visited):
     """
     Performs Depth-First Search (DFS) to find if there is a cycle in a directed graph.
@@ -43,6 +45,8 @@ def detect_cyle(adjacency_list, node, visited, path_visited):
     return False
 
 
+# Time Complexity: O(V + E) effectively bounding disconnected configurations natively thoroughly cleanly.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def helper(adjacency_list):
     """
     Checks if a directed graph has any cycles. Handles disconnected graph 

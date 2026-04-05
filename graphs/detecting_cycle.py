@@ -3,6 +3,8 @@ Problem Statement: Detect Cycle in an Undirected Graph
 Given an undirected graph with V vertices and E edges, check whether it contains any cycle or not.
 """
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def detect_bfs(adjacency_list, visited_array, start):
     queue = [{"node": start, "parent": -1}]
     visited_array[start] = True
@@ -21,6 +23,8 @@ def detect_bfs(adjacency_list, visited_array, start):
     return False
 
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def detect_dfs(adjacency_list, start, parent, visited_array):
     visited_array[start] = True
     for neighbour in adjacency_list[start]:
@@ -32,6 +36,8 @@ def detect_dfs(adjacency_list, start, parent, visited_array):
     return False
 
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def detect_cycle(adjacency_list):
     visited_array = [False for _ in range(len(adjacency_list))]
     for i in range(1, len(adjacency_list)):

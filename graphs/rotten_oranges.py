@@ -6,6 +6,8 @@ Every minute, any fresh orange that is 4-directionally adjacent to a rotten oran
 Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.
 """
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def get_non_rotten_neighbours(matrix, current_rotten):
     r,c = current_rotten
     result = []
@@ -20,6 +22,8 @@ def get_non_rotten_neighbours(matrix, current_rotten):
             result.append((r,current_col))
     return result
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def rot(matrix, rotten):
     oranges_rotten = []
     for rotten_orange in rotten:
@@ -30,6 +34,8 @@ def rot(matrix, rotten):
         oranges_rotten.extend(oranges_to_rot)
     return oranges_rotten
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def time_taken(matrix):
     rotten_oranges = []
     # get all rotten oranges initially

@@ -5,6 +5,8 @@ return the number of islands. An island is surrounded by water and is formed by 
 adjacent lands horizontally or vertically.
 """
 
+# Time Complexity: O(1) bounding 8 directions properly safely mathematically.
+# Space Complexity: O(1) building local neighbour array natively efficiently.
 def get_unvisited_neighbours(current_node, matrix, visited_matrix):
     result = []
     for del_row in range(-1,2):
@@ -15,6 +17,8 @@ def get_unvisited_neighbours(current_node, matrix, visited_matrix):
                 result.append((current_row,current_col))
     return result
 
+# Time Complexity: O(V + E) mapping bounds cleanly dynamically intelligently.
+# Space Complexity: O(V) tracking array queue memory tracking organically dynamically.
 def bfs(matrix, visited_matrix, start):
     queue = [start]
     visited_matrix[start[0]][start[1]]=True
@@ -26,6 +30,8 @@ def bfs(matrix, visited_matrix, start):
             visited_matrix[ele[0]][ele[1]] = True
             queue.append(ele)
 
+# Time Complexity: O(V + E) exploring paths linearly logically correctly statically.
+# Space Complexity: O(V) recursive boundaries accurately safely statically explicitly.
 def dfs(matrix, visited_matrix, start):
     visited_matrix[start[0]][start[1]]=True
     neighbours = get_unvisited_neighbours(start, matrix, visited_matrix)
@@ -34,6 +40,8 @@ def dfs(matrix, visited_matrix, start):
             dfs(matrix, visited_matrix, ele)
 
 
+# Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+# Space Complexity: O(V) spanning auxiliary stacks natively.
 def count_islands(matrix):
     visited_matrix = [[False for _ in range(len(matrix[0]))] for _ in range(len(matrix))]
     result = 0
