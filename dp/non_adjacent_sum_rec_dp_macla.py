@@ -81,7 +81,12 @@ def non_adjacent_max_proper(array, index):
     return max(pick, not_pick)
 
 print(f"Proper pure recursive output: {non_adjacent_max_proper([2,1,4,9], 0)}")
-
+"""
+how to go from memo to tab:(reverse recurion from top down to get the answer)(we go from bottom up on the tree)
+1. declare the dp array
+2. check the variavles that change in the euler's path
+3.copy the recursion as it is instead of call use the stored value in dp array.
+"""
 
 # STEP 2: The Memoized Version (Top-Down DP)
 # Time Complexity: O(N) | Space Complexity: O(N)
