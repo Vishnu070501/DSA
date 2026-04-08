@@ -15,8 +15,8 @@ class surroundedJava {
     record Pair(int x, int y) {
     }
 
-// Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
-// Space Complexity: O(V) spanning auxiliary stacks natively.
+    // Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+    // Space Complexity: O(V) spanning auxiliary stacks natively.
     public static List<Pair> getNeighbours(char[][] matrix, Pair coordinates) {
         List<Pair> neighbors = new ArrayList<>();
 
@@ -49,8 +49,8 @@ class surroundedJava {
         return neighbors;
     }
 
-// Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
-// Space Complexity: O(V) spanning auxiliary stacks natively.
+    // Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+    // Space Complexity: O(V) spanning auxiliary stacks natively.
     public static void dfsMarking(char[][] matrix, Pair startingPoint, boolean[][] visitedMatrix) {
         List<Pair> neigbours = getNeighbours(matrix, startingPoint);
         visitedMatrix[startingPoint.x()][startingPoint.y()] = true;
@@ -60,8 +60,8 @@ class surroundedJava {
         }
     }
 
-// Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
-// Space Complexity: O(V) spanning auxiliary stacks natively.
+    // Time Complexity: O(V + E) for graphs, scaling structurally with node bounds.
+    // Space Complexity: O(V) spanning auxiliary stacks natively.
     public static char[][] replaceSurroundedOswithXs(char[][] matrix) {
         // / Deep copy using streams
         char[][] deepCopy = Arrays.stream(matrix)
@@ -108,6 +108,19 @@ class surroundedJava {
     }
 
     public static void main(String[] args) {
+        // Creating the structure using List.of()
+        // List<Integer> test = List.of(0, 0, 0);
+        // test.add(122);
+        List<List<Integer>> dynamicMatrix = new ArrayList<>(List.of(
+                new ArrayList<>(List.of(0, 0, 0)),
+                new ArrayList<>(List.of(0, -1, 0)),
+                new ArrayList<>(List.of(0, 0, 0))));
+        dynamicMatrix.get(0).add(5);
+        // dynamicMatrix.stream().forEach(row -> {
+        // // row.stream().forEach(System.out::print);
+        // System.out.println(row);
+        // });
+        System.out.println(dynamicMatrix);
         Scanner scan = new Scanner(System.in);
         System.out.println("enter the lenth of the matrix");
         int n = scan.nextInt();
@@ -135,6 +148,7 @@ class surroundedJava {
                     // Now you can work with each row!
                     System.out.println(row);
                 });
+
         scan.close();
     }
 }
